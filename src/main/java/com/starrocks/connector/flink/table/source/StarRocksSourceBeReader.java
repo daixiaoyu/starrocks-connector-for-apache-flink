@@ -15,6 +15,7 @@
 package com.starrocks.connector.flink.table.source;
 
 import com.starrocks.connector.flink.row.source.StarRocksSourceFlinkRows;
+
 import com.starrocks.connector.flink.table.source.struct.ColumnRichInfo;
 import com.starrocks.connector.flink.table.source.struct.Const;
 import com.starrocks.connector.flink.table.source.struct.SelectColumn;

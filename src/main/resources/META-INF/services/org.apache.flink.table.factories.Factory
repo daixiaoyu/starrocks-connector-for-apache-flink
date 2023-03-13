@@ -12,3 +12,5 @@
 
 com.starrocks.connector.flink.table.sink.StarRocksDynamicTableSinkFactory
 com.starrocks.connector.flink.table.source.StarRocksDynamicTableSourceFactory
+com.starrocks.connector.flink.table.catalog.source.StarRocksSourceCatalogFactory
+com.starrocks.connector.flink.table.catalog.sink.StarRocksSinkCatalogFactory

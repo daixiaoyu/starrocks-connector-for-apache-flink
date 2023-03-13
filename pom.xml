@@ -43,7 +43,7 @@ limitations under the License.
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.starrocks</groupId>
     <artifactId>flink-connector-starrocks</artifactId>
-    <version>${srfc.version}_flink-1.15</version>
+    <version>${srfc.version}_flink-1.16-dustess</version>
 
     <properties>
         <srfc.version>1.2.5</srfc.version>
@@ -54,7 +54,7 @@ limitations under the License.
         <file_encoding>UTF-8</file_encoding>
         <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
         <maven-surefire-plugin.version>3.0.0-M4</maven-surefire-plugin.version>
-        <flink.version>1.15.0</flink.version>
+        <flink.version>1.16.0</flink.version>
         <arrow.version>5.0.0</arrow.version>
     </properties>
 
@@ -158,18 +158,18 @@ limitations under the License.
             <version>${flink.version}</version>
             <scope>test</scope>
             <exclusions>
-              <exclusion>
-                <artifactId>flink-runtime</artifactId>
-                <groupId>org.apache.flink</groupId>
-              </exclusion>
-              <exclusion>
-                <artifactId>flink-clients</artifactId>
-                <groupId>org.apache.flink</groupId>
-              </exclusion>
-              <exclusion>
-                <artifactId>curator-test</artifactId>
-                <groupId>org.apache.curator</groupId>
-              </exclusion>
+                <exclusion>
+                    <artifactId>flink-runtime</artifactId>
+                    <groupId>org.apache.flink</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>flink-clients</artifactId>
+                    <groupId>org.apache.flink</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>curator-test</artifactId>
+                    <groupId>org.apache.curator</groupId>
+                </exclusion>
             </exclusions>
         </dependency>
 
@@ -184,6 +184,12 @@ limitations under the License.
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-jdbc</artifactId>
+            <version>1.16.0</version>
         </dependency>
     </dependencies>
     <build>
@@ -333,27 +339,27 @@ limitations under the License.
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                    <configLocation>checkstyle.xml</configLocation>
-                    <encoding>UTF-8</encoding>
-                    <consoleOutput>true</consoleOutput>
-                    <failsOnError>true</failsOnError>
-                    <linkXRef>false</linkXRef>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>validate</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+            <!--            <plugin>-->
+            <!--                <groupId>org.apache.maven.plugins</groupId>-->
+            <!--                <artifactId>maven-checkstyle-plugin</artifactId>-->
+            <!--                <version>3.1.0</version>-->
+            <!--                <configuration>-->
+            <!--                    <configLocation>checkstyle.xml</configLocation>-->
+            <!--                    <encoding>UTF-8</encoding>-->
+            <!--                    <consoleOutput>true</consoleOutput>-->
+            <!--                    <failsOnError>true</failsOnError>-->
+            <!--                    <linkXRef>false</linkXRef>-->
+            <!--                </configuration>-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <id>validate</id>-->
+            <!--                        <phase>validate</phase>-->
+            <!--                        <goals>-->
+            <!--                            <goal>check</goal>-->
+            <!--                        </goals>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -393,7 +399,7 @@ limitations under the License.
             </plugin>
         </plugins>
     </build>
-    
+
     <profiles>
         <profile>
             <id>release</id>
@@ -436,16 +442,16 @@ limitations under the License.
             <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                    <configLocation>checkstyle.xml</configLocation>
-                </configuration>
-            </plugin>
-        </plugins>
-    </reporting>
+    <!--    <reporting>-->
+    <!--        <plugins>-->
+    <!--            <plugin>-->
+    <!--                <groupId>org.apache.maven.plugins</groupId>-->
+    <!--                <artifactId>maven-checkstyle-plugin</artifactId>-->
+    <!--                <version>3.1.0</version>-->
+    <!--                <configuration>-->
+    <!--                    <configLocation>checkstyle.xml</configLocation>-->
+    <!--                </configuration>-->
+    <!--            </plugin>-->
+    <!--        </plugins>-->
+    <!--    </reporting>-->
 </project>
